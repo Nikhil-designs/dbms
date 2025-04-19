@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        /* html, body {
+            padding: 0;
+            margin: 0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } */
+    
+#navbar {
+  position: fixed;
+  top: -50;
+  width: 100%;
+  background-color: var(--nav-color);
+  transition: background-color 0.4s ease;
+  display: block;
+  transition: top 0.3s;
+  z-index: 1000;
+  text-align: center;
+  padding: 15px;
+  /* border-bottom: 2px solid #780c0c33; semi-transparent line */
+}
+
+#navbar a {
+  color: var(--text-color);
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.75rem;
+  
+}
+
+#navbar a:hover {
+  color: #1e6fe8;
+}
+
+/* Theme Switch Button */
+#theme-switch {
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--nav-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 25px;
+  right: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+#theme-switch img {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+  transition: opacity 0.3s ease;
+  position: fixed;
+}
+
+#theme-switch img.sun {
+  opacity: 1;
+}
+
+#theme-switch img.moon {
+  opacity: 0;
+}
+
+.darkmode #theme-switch img.sun {
+  opacity: 0;
+}
+
+.darkmode #theme-switch img.moon {
+  opacity: 1;
+}
+pre {
+            background-color: var(--nav-color);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            /* border-left: 5px solid #007acc; */
+            padding: 10px;
+            /* font-family: Consolas, monospace; */
+            overflow-x: auto;
+            /* border-radius: 5px; */
+        }
+
+/* h1{
+    align-self: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+} */
+
+.questions{
+    padding: 20PX;
+    display: flex;   
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-color);
+    gap: 20px;
+  background-image: url('hi.gif'), url('hi.gif');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right bottom;
+  background-size: 150px 150px; 
+    padding: 100px 20px;
+    padding-inline:12px ;
+    min-height: 100%;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+a{
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: center;
+    font-size: medium;
+}
+
+.solutions{
+    max-height: 100%;
+    /* position: absolute; */
+    /* padding-top: 30px; */
+    /* background-color: var(--background-color); */
+    width: 100%;
+    /* overflow: scroll; */
+    /* margin-right:60px ; */
+    overflow-x: hidden;
+    /* justify-content: ; */
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+.code-output{
+display: flex;
+flex-direction:column;
+/* margin: 10px; */
+/* border: 2px solid rgb(81, 39, 39); */
+
+/* justify-content: left; */
+/* gap: 20px; */
+}
+
+.solution{
+    margin-top: 100px;
+    margin-bottom: 18px;
+    text-align: center;
+    /* font-size: medium;
+ */
+}
+
+.co{
+    /* background-color: rgb(255, 255, 255); */
+    color: var(--text-color);
+    /* border-radius: 20px; */
+    font-family: 'Courier New', Courier, monospace;
+}
+.code{
+    /* border-radius: 20px; */
+    padding: 12px;
+    font-size: 1rem;
+    text-align: center;
+    /* border: 2px solid rgb(0, 0, 0) ; */
+    overflow:hidden
+}
+.code>h3,.output>h3{
+    /* border: 1px solid rgb(0, 0, 0); */
+    font-family: 'Press Start 2P', cursive;
+    text-align: left;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.output{
+    padding: 10px;
+    font-size:1rem;
+    margin-top: 10px;
+    text-align: center;
+    /* background-color:rgb(255, 255, 255) ; */
+     /* border: 1px solid rgb(0, 0, 0); */
+}
+
+</style>
+</head>
+<body>
+  <div class="custom-cursor site-wide">
+    <img id="cursor-default" src="Screenshot_2025-04-09_013719-removebg-preview.png"alt="cursor" />
+    <img id="cursor-hover" src="pixelcursor-removebg-preview.png"alt="cursor-hover" />
+    <!-- <div class="pixel" id="cursor-hover" style="background-image: url('picture/Oo\ Ee\ A\ E\ A\ Cat\ Meme\ Animated--pointer--SweezyCursors.png')"></div> -->
+  </div>
+    <div id="navbar">
+      <a href="index.html">Start</a>
+      <a href="DML.html">DML</a>
+      <a href="DQL.html">DQL</a>
+      <!-- <a href="DCL.HTML">DCL</a> -->
+      <a href="TCL.html">TCL/DCL</a>
+      <a href="plsql.html">PL/SQL Zone</a>
+      <a href="intro.html">Back</a>
+        <!-- Toggle Button -->
+        <button id="theme-switch">
+          <img src="sun.png" alt="Light Mode" class="sun">
+          <img src="moon.png" alt="Dark Mode" class="moon">
+        </button>
+      </div>
+      <div class="container">
+        <main>
+            <div class="questions">
+                <h1>DDL</h1>
+                <div class="question">
+                    <a href="#s1">CREATE TABLE</a>
+                </div>
+                <div class="question">
+                    <a href="#s2">CREATE TABLE (FROM ANOTHER TABLE)</a>
+                </div>
+                <div class="question">
+                    <a href="#s3">AlLTER TABLE(ADD)</a>
+                </div>
+                <div class="question">
+                    <a href="#s4">ALTER TABLE(MODIFY)</a>
+                </div>
+                <div class="question">
+                    <a href="#s4">ALTER TABLE(DROP)</a>
+                </div>
+                <div class="question">
+                    <a href="#s6">DROP TABLE</a>
+                </div>
+                <div class="question">
+                    <a href="#s7">TRUNCATE TABLE</a>
+                </div>
+            </div>
+
+            <div class="solutions">              
+              
+              <!-- SQL CREATE TABLE -->
+              <div class="solution" id="s1">
+                
+                <div class="que">
+                  <p style="font-size: 25px; font-weight: 800px;"><span class="bold"></span>CREATE TABLE</p> 
+                </div>
+                <div class="code-output">
+                  <div class="code">
+                    <h3 class="co">INTRO</h3>
+                    <pre>
+The CREATE TABLE command is used to define a structure within a database.
+                      
+                  Syntax:
+                  CREATE TABLE table_name (
+                    column1 datatype,
+                    column2 datatype,
+                    ...
+                    );
+                      </pre>
+                      
+                      <h3 class="co">SQL</h3>
+                      <pre>
+                    CREATE TABLE students (
+                      id INT PRIMARY KEY,
+                      name VARCHAR(50),
+                      age INT
+                      );
+                        </pre>
+                        
+                        <h3 class="co">Verify Creation</h3>
+                        <pre>
+                      SHOW TABLES;
+                        </pre>
+                      </div>
+                      
+                      <div class="output">
+            <h3 class="co">OUTPUT</h3>
+            <pre>
+          Query OK, 0 rows affected (0.03 sec)
+              
+          +------------------+
+          | Tables_in_college|
+          +------------------+
+          | students         |
+          +------------------+
+            </pre>
+          </div>
+        </div>
+      </div>
+      <!-- SQL CREATE Table from another table -->
+      <div class="solution" id="s2">
+        <div class="que">
+            <p style="font-size: 25px; font-weight: 800px;"><span class="bold"></span> CREATE TABLE (FROM ANOTHER TABLE)</p> 
+        </div>
+        <div class="code-output">
+            <div class="code">
+                <h3 class="co">INTRO</h3>
+                <pre>
+The CREATE TABLE AS SELECT command helps you create a new table from an existing table.
+    
+Syntax (with data):
+CREATE TABLE new_table AS
+SELECT * FROM existing_table;
+    
+Syntax (structure only):
+CREATE TABLE new_table AS
+SELECT * FROM existing_table WHERE 1 = 0;
+                </pre>
+    
+                <h3 class="co">SQL</h3>
+                <pre>
+Create new table with data from existing
+CREATE TABLE backup_students AS
+SELECT * FROM students;
+    
+Create new table with just structure
+CREATE TABLE empty_students AS
+SELECT * FROM students WHERE 1 = 0;
+                </pre>
+    
+                <h3 class="co">Verify Creation</h3>
+                <pre>
+SHOW TABLES;
+                </pre>
+            </div>
+    
+            <div class="output">
+                <h3 class="co">OUTPUT</h3>
+                <pre>
+Query OK, 2 rows affected (0.02 sec)
+    
++------------------+
+| Tables_in_college|
++------------------+
+| students         |
+| backup_students  |
+| empty_students   |
++------------------+
+                </pre>
+            </div>
+        </div>
+    </div>
+  <div class="solution" id="s3">
+    <div class="que">
+        <p style="font-size: 25px; font-weight: 800px;"><span class="bold"></span> ALTER TABLE (ADD COLUMN)</p> 
+    </div>
+    <div class="code-output">
+        <div class="code">
+            <h3 class="co">INTRO</h3>
+            <pre>
+The ALTER TABLE ADD COLUMN command adds a new column.
+
+Syntax:
+ALTER TABLE table_name
+ADD column_name datatype;
+            </pre>
+
+            <h3 class="co">SQL</h3>
+            <pre>
+ALTER TABLE students
+ADD email VARCHAR(100);
+            </pre>
+
+            <h3 class="co">Verify Structure</h3>
+            <pre>
+DESCRIBE students;
+            </pre>
+        </div>
+
+        <div class="output">
+            <h3 class="co">OUTPUT</h3>
+            <pre>
+Query OK, 0 rows affected (0.01 sec)
+
++--------+-------------+
+| Field  | Type        |
++--------+-------------+
+| id     | INT         |
+| name   | VARCHAR(50) |
+| grade  | CHAR(1)     |
+| email  | VARCHAR(100)|
++--------+-------------+
+            </pre>
+        </div>
+    </div>
+</div>
+
+<div class="solution" id="s4">
+  <div class="que">
+      <p style="font-size: 25px; font-weight: 800px;"><span class="bold"></span> ALTER TABLE (MODIFY COLUMN)</p> 
+  </div>
+  <div class="code-output">
+      <div class="code">
+          <h3 class="co">INTRO</h3>
+          <pre>
+The ALTER TABLE MODIFY command is your tool to change a column's data type or size.
+
+Syntax:
+ALTER TABLE table_name
+MODIFY column_name new_datatype;
+          </pre>
+
+          <h3 class="co">SQL</h3>
+          <pre>
+ALTER TABLE students
+MODIFY name VARCHAR(100);
+          </pre>
+
+          <h3 class="co">Verify Change</h3>
+          <pre>
+DESCRIBE students;
+          </pre>
+      </div>
+
+      <div class="output">
+          <h3 class="co">OUTPUT</h3>
+          <pre>
+Query OK, 0 rows affected (0.01 sec)
+
++--------+--------------+
+| Field  | Type         |
++--------+--------------+
+| id     | INT          |
+| name   | VARCHAR(100) |
+| grade  | CHAR(1)      |
+| email  | VARCHAR(100) |
++--------+--------------+
+          </pre>
+      </div>
+  </div>
+</div>
+<div class="solution" id="s5">
+  <div class="que">
+      <p style="font-size: 25px; font-weight: 800px;"><span class="bold"></span> ALTER TABLE (DROP COLUMN)</p> 
+  </div>
+  <div class="code-output">
+      <div class="code">
+          <h3 class="co">INTRO</h3>
+          <pre>
+The ALTER TABLE DROP COLUMN command removes a column you no longer need.
+
+Syntax:
+ALTER TABLE table_name
+DROP COLUMN column_name;
+          </pre>
+
+          <h3 class="co">SQL</h3>
+          <pre>
+ALTER TABLE students
+DROP COLUMN email;
+          </pre>
+
+          <h3 class="co">Verify Structure</h3>
+          <pre>
+DESCRIBE students;
+          </pre>
+      </div>
+
+      <div class="output">
+          <h3 class="co">OUTPUT</h3>
+          <pre>
+Query OK, 0 rows affected (0.01 sec)
+
++--------+--------------+
+| Field  | Type         |
++--------+--------------+
+| id     | INT          |
+| name   | VARCHAR(100) |
+| grade  | CHAR(1)      |
++--------+--------------+
+          </pre>
+      </div>
+  </div>
+</div>
+<div class="solution" id="s6">
+  <div class="que">
+    <p style="font-size: 25px; font-weight: 800px;"><span class="bold"></span>DROP TABLE</p>
+  </div>
+  <div class="code-output">
+    <div class="code">
+      <h3 class="co">INTRO</h3>
+      <pre>
+The DROP TABLE command is used to delete a table from your database.
+
+Syntax:
+DROP TABLE table_name;
+      </pre>
+
+      <h3 class="co">SQL</h3>
+      <pre>
+DROP TABLE students;
+      </pre>
+
+      <h3 class="co">Verify Deletion</h3>
+      <pre>
+SHOW TABLES;
+      </pre>
+    </div>
+
+    <div class="output">
+      <h3 class="co">OUTPUT</h3>
+      <pre>
+Query OK, 0 rows affected (0.02 sec)
+
++------------------+
+| Tables_in_college|
++------------------+
+| teachers         |
++------------------+
+
+-- 'students' has been removed from the list.
+      </pre>
+    </div>
+  </div>
+</div>
+<div class="solution" id="s7">
+  <div class="que">
+      <p style="font-size: 25px; font-weight: 800px;"><span class="bold"></span> TRUNCATE TABLE</p> 
+  </div>
+  <div class="code-output">
+      <div class="code">
+          <h3 class="co">INTRO</h3>
+          <pre>
+TRUNCATE TABLE deletes all rows instantly while keeping the table structure intact.
+It's faster than DELETE and resets auto-increment counters too.
+
+Syntax:
+TRUNCATE TABLE table_name;
+          </pre>
+
+          <h3 class="co">SQL</h3>
+          <pre>
+TRUNCATE TABLE students;
+          </pre>
+
+          <h3 class="co">Verify Table is Empty</h3>
+          <pre>
+SELECT * FROM students;
+          </pre>
+      </div>
+
+      <div class="output">
+          <h3 class="co">OUTPUT</h3>
+          <pre>
+Query OK, 0 rows affected (0.01 sec)
+
+Empty set (0.00 sec)
+          </pre>
+      </div>
+  </div>
+</div>
+
+<script src="darkmode.js"></script>
+    <script>
+      document.addEventListener('mousemove', (e) => {
+  const cursor = document.querySelector('.custom-cursor.site-wide');
+  const cursorDefault = document.getElementById('cursor-default');
+  const cursorHover = document.getElementById('cursor-hover');
+
+  const w = cursor.clientWidth;
+  const h = cursor.clientHeight;
+  cursor.style.transform = `translate(${e.clientX - w / 1.8}px, ${e.clientY - h / 5}px)`;
+
+  const isClickable = e.target.closest('a, button, input, textarea, select, [role="button"]');
+  const isIframe = e.target.tagName === 'IFRAME';
+
+  if (isIframe) {
+    cursor.style.display = 'none'; // hide custom cursor
+    document.body.style.cursor = 'pointer'; // show system hand
+  } else {
+    cursor.style.display = 'block';
+    document.body.style.cursor = 'none'; // hide system cursor
+    if (isClickable) {
+      cursorDefault.style.display = 'none';
+      cursorHover.style.display = 'block';
+    } else {
+      cursorDefault.style.display = 'block';
+      cursorHover.style.display = 'none';
+    }
+  }
+});
+//output
+const outputs=document.querySelectorAll('.output');
+const codes=document.querySelectorAll('.code');
+outputs.forEach((output)=>{
+    (output.firstElementChild.classList.add('co'));
+})
+
+codes.forEach((code)=>{
+    (code.firstElementChild.classList.add('co'));
+})
+</script>
+</body>
+</html>
