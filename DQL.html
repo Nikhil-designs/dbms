@@ -88,13 +88,55 @@
   opacity: 1;
 }
 pre {
+  font-size: larger;
             background-color: var(--nav-color);
             transition: background-color 0.4s ease, color 0.4s ease;
             /* border-left: 5px solid #007acc; */
-            padding: 10px;
+            padding: 3%;
             /* font-family: Consolas, monospace; */
             overflow-x: auto;
             /* border-radius: 5px; */
+            clip-path: polygon(
+    0px calc(100% - 10px),
+    4px calc(100% - 10px),
+    4px calc(100% - 6px),
+    8px calc(100% - 6px),
+    8px calc(100% - 4px),
+    12px calc(100% - 4px),
+    12px calc(100% - 2px),
+    20px calc(100% - 2px),
+    20px 100%,
+    calc(50% - 6px) 100%,
+    50% calc(100% + 8px),
+    calc(50% + 6px) 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 2px),
+    calc(100% - 12px) calc(100% - 2px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 6px),
+    calc(100% - 4px) calc(100% - 6px),
+    calc(100% - 4px) calc(100% - 10px),
+    100% calc(100% - 10px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px
+  );
         }
 
 /* h1{
@@ -112,7 +154,7 @@ pre {
     gap: 20px;
   background-image: url('hi.gif'), url('hi.gif');
   background-repeat: no-repeat, no-repeat;
-  background-position: left top, right bottom;
+  background-position: left bottom, right top;
   background-size: 150px 150px; 
     padding: 100px 20px;
     padding-inline:12px ;
@@ -165,28 +207,36 @@ flex-direction:column;
 }
 .code{
     /* border-radius: 20px; */
-    padding: 12px;
+    padding: 3%;
     font-size: 1rem;
-    text-align: center;
+    text-align: left;
     /* border: 2px solid rgb(0, 0, 0) ; */
     overflow:hidden
 }
-.code>h3,.output>h3{
+.code>h3{
     /* border: 1px solid rgb(0, 0, 0); */
     font-family: 'Press Start 2P', cursive;
     text-align: left;
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+.output>h3{
+  font-family: 'Press Start 2P', cursive;
+    text-align: left;
+    font-size: 20px;
+    margin-left: 2%;
+    margin-bottom: 2%;
 }
 .output{
-    padding: 10px;
+    padding: 3%;
     font-size:1rem;
-    margin-top: 10px;
-    text-align: center;
+    margin-top: -3%;
+    text-align: left;
     /* background-color:rgb(255, 255, 255) ; */
      /* border: 1px solid rgb(0, 0, 0); */
 }
-
 </style>
 </head>
 <body>
