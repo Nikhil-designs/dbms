@@ -88,10 +88,11 @@
   opacity: 1;
 }
 pre {
+  font-size: larger;
             background-color: var(--nav-color);
             transition: background-color 0.4s ease, color 0.4s ease;
             /* border-left: 5px solid #007acc; */
-            padding: 10px;
+            padding: 3%;
             /* font-family: Consolas, monospace; */
             overflow-x: auto;
             /* border-radius: 5px; */
@@ -154,7 +155,7 @@ pre {
   background-image: url('hi.gif'), url('hi.gif');
   background-repeat: no-repeat, no-repeat;
   background-position: left bottom, right top;
-  /* background-size: 150px 150px;  */
+  background-size: 150px 150px; 
     padding: 100px 20px;
     padding-inline:12px ;
     min-height: 100%;
@@ -206,24 +207,33 @@ flex-direction:column;
 }
 .code{
     /* border-radius: 20px; */
-    padding: 12px;
+    padding: 3%;
     font-size: 1rem;
-    text-align: center;
+    text-align: left;
     /* border: 2px solid rgb(0, 0, 0) ; */
     overflow:hidden
 }
-.code>h3,.output>h3{
+.code>h3{
     /* border: 1px solid rgb(0, 0, 0); */
     font-family: 'Press Start 2P', cursive;
     text-align: left;
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+.output>h3{
+  font-family: 'Press Start 2P', cursive;
+    text-align: left;
+    font-size: 20px;
+    margin-left: 2%;
+    margin-bottom: 2%;
 }
 .output{
-    padding: 10px;
+    padding: 3%;
     font-size:1rem;
-    margin-top: 10px;
-    text-align: center;
+    margin-top: -3%;
+    text-align: left;
     /* background-color:rgb(255, 255, 255) ; */
      /* border: 1px solid rgb(0, 0, 0); */
 }
@@ -282,7 +292,6 @@ CREATE DATABASE college;
 SHOW DATABASES;
                             </pre>
                         </div>
-
                         <div class="output">
                             <h3 class="co">OUTPUT</h3>
                             <pre>
